@@ -1,0 +1,26 @@
+pipeline {
+	agent{ 
+		label "Linux-Infra"
+	}
+	environment {
+		GREETINGS = "Hello Jenkins!"
+	}
+	stages{
+		stage("Test"){
+			steps{
+				echo "Testing"
+			}
+		}
+		stage("Call Script"){
+			steps{
+				sh 'chmod +x ./script.sh'
+				sh './script.sh'
+			}
+		}
+		stage("Greetings"){
+			steps{
+				echo "${env.GREETINGS}"
+			}
+		}
+	}
+}
