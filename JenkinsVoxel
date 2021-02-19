@@ -11,12 +11,6 @@ pipeline {
 				echo "Testing"
 			}
 		}
-		stage("Call Script"){
-			steps{
-				sh 'chmod +x ./script.sh'
-				sh './script.sh'
-			}
-		}
 		stage("Greetings"){
 			steps{
 				echo "${env.GREETINGS}"
